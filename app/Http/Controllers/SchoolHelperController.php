@@ -86,9 +86,10 @@ class SchoolHelperController extends Controller
     // get school academic level list
     public function getAcademicLevelList(){
         // get academic year profile
+        // dd($this->getAcademicYear());
         if($year = $this->getAcademicYear()){
             // json body information
-            $json = ['institute'=>$this->getInstituteId(), 'campus'=>$this->getCampusId(), 'id'=>$year->id];
+            $json = ['institute'=>$this->getInstituteId(), 'campus'=>$this->getCampusId(), 'id'=>$year->data->id];
             // academic level list url
             $url = $this->getEmsUrl().'/api/get-academic-level-list';
             // return academic level list
@@ -271,6 +272,7 @@ class SchoolHelperController extends Controller
             // request response
             $response = json_decode($client->request('POST', $url, ['json' => $json])->getBody()->getContents());
         }
+        return $response;
         // checking status
         if($response->status=='success'){
             // request data

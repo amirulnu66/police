@@ -15,6 +15,7 @@ use App\VideoGallery;
 use App\PublicResult;
 use App\FeesModel;
 use Session;
+use Illuminate\Support\Facades\Redirect;
 
 
 class HomeController extends Controller
@@ -292,18 +293,21 @@ class HomeController extends Controller
  	
  	//store student admission data
     public function admissionDataStore(Request $request) {
-        // return $request->all();
         // save/store online student information
         $stdStored = $this->schoolHelper->storeOnlineStudent($request->all());
         // checking
         if($stdStored){
-             Session::flash('success','Student information submitted !!!');
+			 Session::flash('success','Student information submitted !!!');
+			 return Redirect::to('admission/online/bkash-pay/'.$stdStored->invoice_id);
         }else{
             Session::flash('feiled','Invalid information !!');
         }
         //return 
         return redirect()->back();
-    }
+	}
+	
+
+
  	 	
  
     ////////////////...........End online admission section......///////////////////	 	

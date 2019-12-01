@@ -1,8 +1,6 @@
-@extends('frontend.master')
+<?php $__env->startSection('title'); ?>
 
-@section('title')
-
-@section('contant')
+<?php $__env->startSection('contant'); ?>
 <header class="page-heading clearfix">
     <h1 class="heading-title pull-left">
         <span id="MainContent_lblbtitle">অ্যাডমিশন  </span>
@@ -19,54 +17,54 @@
 <div class="details col-md-10 col-md-offset-1 col-xs-12 form-inner-bg">
         <div class="col-md-12">
           <div class="row">
-            @if(Session::has('success'))
+            <?php if(Session::has('success')): ?>
             <div id="w0-success-0" class="alert-success alert-auto-hide alert fade in" style="opacity: 423.642;">
                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> 
-                <h4><i class="icon fa fa-check"></i> {{ Session::get('success') }} </h4>
+                <h4><i class="icon fa fa-check"></i> <?php echo e(Session::get('success')); ?> </h4>
             </div>
-            @elseif(Session::has('feiled'))
+            <?php elseif(Session::has('feiled')): ?>
             <div id="w0-success-0" class="alert-warning alert-auto-hide alert fade in" style="opacity: 423.642;">
                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> 
-                <h4><i class="icon fa fa-check"></i> {{ Session::get('feiled') }} </h4>
+                <h4><i class="icon fa fa-check"></i> <?php echo e(Session::get('feiled')); ?> </h4>
             </div>
-            @elseif(Session::has('error'))
+            <?php elseif(Session::has('error')): ?>
             <div id="w0-success-0" class="alert-warning alert-auto-hide alert fade in" style="opacity: 423.642;">
                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button> 
-                <h4><i class="icon fa fa-check"></i> {{ Session::get('warning') }} </h4>
+                <h4><i class="icon fa fa-check"></i> <?php echo e(Session::get('warning')); ?> </h4>
             </div>
-            @endif
+            <?php endif; ?>
         </div>
     </div>   <!--.//col-->
 
     <div class="admison-heade-section">
         <div class="col-sm-2 form-logo-inner">
-           @if(settingsInfo()->institute_logo)
-           <img class="admision-form-logo" src="{{url('assets/settings/'.settingsInfo()->institute_logo)}}" alt="logo" width="90" height="90">
-           @endif
+           <?php if(settingsInfo()->institute_logo): ?>
+           <img class="admision-form-logo" src="<?php echo e(url('assets/settings/'.settingsInfo()->institute_logo)); ?>" alt="logo" width="90" height="90">
+           <?php endif; ?>
        </div>
-       @if(!empty(settingsInfo())) 
+       <?php if(!empty(settingsInfo())): ?> 
        <div class="col-sm-10">
 
-        <h2 class="admission-scl-name">{{settingsInfo()->institute_name}} </h2>
+        <h2 class="admission-scl-name"><?php echo e(settingsInfo()->institute_name); ?> </h2>
 
-        <h3 class="admission-scl-adderss">{{settingsInfo()->institute_address}} </h3>
-        <p><span><strong>e-mail:</strong>{{settingsInfo()->email}} </span>
-            <span><strong>Phone:</strong> {{settingsInfo()->phone_number}} </span>
+        <h3 class="admission-scl-adderss"><?php echo e(settingsInfo()->institute_address); ?> </h3>
+        <p><span><strong>e-mail:</strong><?php echo e(settingsInfo()->email); ?> </span>
+            <span><strong>Phone:</strong> <?php echo e(settingsInfo()->phone_number); ?> </span>
         </p>
 
     </div>
-    @endif
+    <?php endif; ?>
     <div class="clear-fix"></div>
 
 </div>
 <span id="MainContent_lblbcontent">ভর্তির আবেদন ফরম</span>
 
-<form id="myform" method="post" action="{{URL::to('/online/admission/data/store')}}">
-    <input type="hidden" name="_token" value="{{csrf_token()}}">
-    <input type="hidden" name="campus_id" value="{{env('CAMPUS_ID')}}">
-    <input type="hidden" name="institute_id" value="{{env('INSTITUTE_ID')}}">
-    <input type="hidden" name="email" value="{{env('CAMPUS_ID').env('INSTITUTE_ID').rand(10,100).rand(101,1000)}}@gmail.com">
-    <input type="hidden" name="username" value="{{env('CAMPUS_ID').env('INSTITUTE_ID').rand(10,100).rand(101,1000)}}">
+<form id="myform" method="post" action="<?php echo e(URL::to('/online/admission/data/store')); ?>">
+    <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+    <input type="hidden" name="campus_id" value="<?php echo e(env('CAMPUS_ID')); ?>">
+    <input type="hidden" name="institute_id" value="<?php echo e(env('INSTITUTE_ID')); ?>">
+    <input type="hidden" name="email" value="<?php echo e(env('CAMPUS_ID').env('INSTITUTE_ID').rand(10,100).rand(101,1000)); ?>@gmail.com">
+    <input type="hidden" name="username" value="<?php echo e(env('CAMPUS_ID').env('INSTITUTE_ID').rand(10,100).rand(101,1000)); ?>">
     <input type="hidden" name="password" value="123456">
     <input type="hidden" name="confirm_password" value="123456">
     <div class="col-sm-12 amission-form-bg">
@@ -222,11 +220,11 @@
                 <label for="present" class="control-label">জেলা *</label>
                 <select class="form-control state" id="present" name="add_pre_state" required>
                     <option value="" disabled selected>---Select One---</option>
-                    @if($stateList)
-                        @foreach($stateList as $index=>$state)
-                            <option value="{{$state->id}}">{{$state->name}}</option>
-                        @endforeach
-                    @endif
+                    <?php if($stateList): ?>
+                        <?php $__currentLoopData = $stateList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$state): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($state->id); ?>"><?php echo e($state->name); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
 
                 </select>
             </div>
@@ -267,11 +265,11 @@
                 <label for="per_state" class="control-label">জেলা *</label>
                 <select class="form-control state" id="permanent" name="add_per_state" required>
                     <option value="" disabled selected>---Select One---</option>
-                    @if($stateList)
-                        @foreach($stateList as $index=>$state)
-                            <option value="{{$state->id}}">{{$state->name}}</option>
-                        @endforeach
-                    @endif
+                    <?php if($stateList): ?>
+                        <?php $__currentLoopData = $stateList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $index=>$state): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($state->id); ?>"><?php echo e($state->name); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
 
                 </select>
             </div>
@@ -335,11 +333,11 @@
                 <label for="academic_year" class="control-label">প্রাতিষ্ঠানিক বৎসর *</label>
                 <select class="form-control academicYear" id="academic_year" name="academic_year">
                     <option value="" disabled selected>Select Academic Year</option>
-                    @if(!empty($academicYearList) AND count($academicYearList->data)>0)
-                        @foreach($academicYearList->data as $year)
-                            <option value="{{$year->id}}">{{$year->year_name}}</option>
-                        @endforeach
-                    @endif
+                    <?php if(!empty($academicYearList) AND count($academicYearList->data)>0): ?>
+                        <?php $__currentLoopData = $academicYearList->data; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $year): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                            <option value="<?php echo e($year->id); ?>"><?php echo e($year->year_name); ?></option>
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                    <?php endif; ?>
                 </select>
 
             </div>
@@ -426,16 +424,16 @@
     </form>
 </div>
 
-@stop
+<?php $__env->stopSection(); ?>
 
 
-@section('js-script')
+<?php $__env->startSection('js-script'); ?>
     <script>
       $(document).ready(function () {
                 //datepicker calender                      
                 $('.datepicker').datepicker();
-                var campus_id = "{{env('CAMPUS_ID')}}";
-                var institute_id = "{{env('INSTITUTE_ID')}}";
+                var campus_id = "<?php echo e(env('CAMPUS_ID')); ?>";
+                var institute_id = "<?php echo e(env('INSTITUTE_ID')); ?>";
 
                 jQuery(document).on('change','.state', function(){
                             // get academic level id
@@ -487,7 +485,7 @@
                     // checking
                     if(campus_id && institute_id){
                         $.ajax({
-                            url: "{{env("EMS_URL")}}/api/get-academic-level-list",
+                            url: "<?php echo e(env("EMS_URL")); ?>/api/get-academic-level-list",
                             type: 'POST',
                             cache: false,
                             data: {
@@ -547,7 +545,7 @@
                     // checking
                     if(campus_id && institute_id){
                         $.ajax({
-                            url: "{{env("EMS_URL")}}/api/get-academic-batch-list",
+                            url: "<?php echo e(env("EMS_URL")); ?>/api/get-academic-batch-list",
                             type: 'POST',
                             cache: false,
                             data: {
@@ -598,4 +596,6 @@
             });
     </script>
 
-@endsection
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('frontend.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

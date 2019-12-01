@@ -307,6 +307,15 @@ Route::get('/api/get-academic-section-list/{sectionId}', 'SchoolHelperController
 
 
 
+// bkash payment all route 
+Route::get('/bkash-success', 'APIBkashController@bkashSuccess');
+Route::get('/admission/online/bkash-pay/{invoiceID}', 'APIBkashController@bkashPaymentView');
+//
+Route::get('bKash/create-checkout', 'APIBkashController@createCheckOut');
+Route::get('bKash/execute-checkout', 'APIBkashController@executeCheckout');
+Route::get('get-token', 'APIBkashController@genToken');
+
+
 
 
 
