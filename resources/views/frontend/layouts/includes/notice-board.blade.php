@@ -1,10 +1,10 @@
-<section class="links notice-sidebar">
+{{--  <section class="links notice-sidebar">
          <h1 class="section-heading text-highlight rightbar-link-bg">
        <span class="line">নোটিশবোর্ড</span> </h1>
       <div id="MainContent_NoticeDiv" class="section-content" style="min-height:200px;">
         <marquee id="MainContent_topnewss" style="color: Black; font-weight: bold;height: 250px;" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();" direction="up">
          <div class="row page-row">
-            <div class="events-wrapper col-md-12" style="margin:10px "> 
+            <div class="events-wrapper col-md-12" style="margin:10px ">   --}}
                     
           {{--checking notice list--}}
 <!-- .//This variable get App\Providers\AppServiceProvider -->
@@ -33,8 +33,8 @@
   
             @endforeach  --}}
 
-        @endif
-            </div>
+        {{--  @endif  --}}
+            {{--  </div>
           </div>
 
         </marquee>
@@ -42,7 +42,7 @@
          
 
     <!--//section-content-->
-        </section>
+        </section>  --}}
  <script>
 
   $(document).ready(function () {
