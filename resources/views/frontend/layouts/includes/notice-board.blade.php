@@ -8,10 +8,10 @@
                     
           {{--checking notice list--}}
 <!-- .//This variable get App\Providers\AppServiceProvider -->
-          @if(!empty($noticeList) AND count($noticeList)>0)
+          {{--  @if(!empty($noticeList) AND count($noticeList)>0)  --}}
               {{--notice list looping--}}
 
-            @foreach($noticeList as $notice)
+            {{--  @foreach($noticeList as $notice)
                 <article class="news-item page-row has-divider clearfix row">       
                   <div class="col-md-12">
                     <i class="fa fa-newspaper-o"> </i>
@@ -31,7 +31,7 @@
                     </div>
                </article>
   
-            @endforeach
+            @endforeach  --}}
 
         @endif
             </div>
