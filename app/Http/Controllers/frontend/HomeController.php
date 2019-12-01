@@ -298,7 +298,7 @@ class HomeController extends Controller
         // checking
         if($stdStored){
 			 Session::flash('success','Student information submitted !!!');
-			 return Redirect::to('admission/online/bkash-pay/'.$stdStored->invoice_id);
+			 return Redirect::to('/admission/online/bkash-pay/'.$stdStored->invoice_id);
         }else{
             Session::flash('feiled','Invalid information !!');
         }

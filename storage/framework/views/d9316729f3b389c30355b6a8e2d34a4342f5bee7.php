@@ -43,7 +43,7 @@
 <script src="<?php echo e(URL::to('js/bKash-checkout-sandbox.js')); ?>"></script>
 <script>
     $(document).ready(function () {
-    var paymentRequest = { amount:<?php echo e($studentProfile->amount); ?>, intent: 'sale'};
+    var paymentRequest = { amount:50, intent: 'sale'};
     var id = "<?php echo e($studentProfile->invoice_id); ?>";
     var paymentID = null;
     var bKashCheckoutUrl = 'http://localhost:8000/bKash/';
