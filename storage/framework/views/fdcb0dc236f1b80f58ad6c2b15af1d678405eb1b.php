@@ -1,49 +1,14 @@
-<section class="links notice-sidebar">
-         <h1 class="section-heading text-highlight rightbar-link-bg">
-       <span class="line">নোটিশবোর্ড</span> </h1>
-      <div id="MainContent_NoticeDiv" class="section-content" style="min-height:200px;">
-        <marquee id="MainContent_topnewss" style="color: Black; font-weight: bold;height: 250px;" scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();" direction="up">
-         <div class="row page-row">
-            <div class="events-wrapper col-md-12" style="margin:10px "> 
+
                     
           
 <!-- .//This variable get App\Providers\AppServiceProvider -->
-          <?php if(!empty($noticeList) AND count($noticeList)>0): ?>
+          
               
 
-            <?php $__currentLoopData = $noticeList; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $notice): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                <article class="news-item page-row has-divider clearfix row">       
-                  <div class="col-md-12">
-                    <i class="fa fa-newspaper-o"> </i>
-                    </div>
-                    <div class="details col-md-8 col-sm-12 col-xs-8" style="padding-top:0; margin-top:-38px;margin-left:25px">
-                  <!-- This togel have master.php  -->
-                        
-                   <h4 class="Event_news_aside" > 
-                    <a id="<?php echo e($notice->id); ?>" style="cursor: pointer;" class="notice" data-toggle="modal" data-target="#myModal" data-id="<?php echo e(date('d M, Y', strtotime($notice->date))); ?>" data-key="<?php echo e($notice->file); ?>" data-title="<?php echo e($notice->file_path); ?>" data-content="<?php echo e($notice->description); ?>">
+            
 
-                  <?php echo e($notice->title); ?>
-
-
-                </a>
-
-                 </h4> 
-                   
-                    </div>
-               </article>
-  
-            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-
-        <?php endif; ?>
-            </div>
-          </div>
-
-        </marquee>
-         </div>
-         
-
-    <!--//section-content-->
-        </section>
+        
+            
  <script>
 
   $(document).ready(function () {
