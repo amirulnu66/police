@@ -485,8 +485,8 @@
                     // checking
                     if(campus_id && institute_id){
                         $.ajax({
-                            url: "<?php echo e(env("EMS_URL")); ?>/api/get-academic-level-list",
-                            type: 'POST',
+                            url: "<?php echo e(URL::to('get-academic-level-list')); ?>",
+                            type: 'GET',
                             cache: false,
                             data: {
                                 "institute":institute_id,
@@ -501,6 +501,7 @@
                             },
 
                             success:function(response){
+                                console.log(response.data);
                                 // checking
                                 if(response.status=='success'){
                                     var data = response.data;
@@ -545,8 +546,8 @@
                     // checking
                     if(campus_id && institute_id){
                         $.ajax({
-                            url: "<?php echo e(env("EMS_URL")); ?>/api/get-academic-batch-list",
-                            type: 'POST',
+                            url: "<?php echo e(URL::to('get-academic-batch-list')); ?>",
+                            type: 'GET',
                             cache: false,
                             data: {
                                 "institute":institute_id,

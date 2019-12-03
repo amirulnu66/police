@@ -401,4 +401,37 @@ class HomeController extends Controller
 
 
 
+
+	public function getAcademicLevelLIst(){
+		if($year = $this->schoolHelper->getAcademicYear()){
+            // json body information
+            $json = ['institute'=>$this->schoolHelper->getInstituteId(), 'campus'=>$this->schoolHelper->getCampusId(), 'id'=>$year->data->id];
+            // academic level list url
+            $url = $this->schoolHelper->getEmsUrl().'/api/get-academic-level-list';
+            // return academic level list
+			$academicLevelList= $this->schoolHelper->myGuzzleRequest('POST', $url,  $json);
+			 // json_encode($academicLevelList);
+			return response()->json($academicLevelList);
+        }else{
+            // return null
+            return null;
+        }
+	}
+
+	public function getAcademicBatchList(Request $request){
+		if($levelId=$request->id AND $year = $this->schoolHelper->getAcademicYear()){
+            // json body information
+            $json = ['institute'=>$this->schoolHelper->getInstituteId(), 'campus'=>$this->schoolHelper->getCampusId(), 'id'=>$levelId];
+            // academic level list url
+            $url = $this->schoolHelper->getEmsUrl().'/api/get-academic-batch-list';
+            // return academic level list
+			$academicBatchList=$this->schoolHelper->myGuzzleRequest('POST', $url,  $json);
+			return response()->json($academicBatchList);
+        }else{
+            // return null
+            return [];
+        }
+	}
+
+
 }

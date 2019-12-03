@@ -316,6 +316,13 @@ Route::get('bKash/execute-checkout', 'APIBkashController@executeCheckout');
 Route::get('get-token', 'APIBkashController@genToken');
 
 
+//academic year  
+Route::get('/get-academic-level-list', 'frontend\HomeController@getAcademicLevelLIst');
+Route::get('/get-academic-batch-list', 'frontend\HomeController@getAcademicBatchList');
+
+
+
+
 
 
 
