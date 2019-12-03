@@ -141,6 +141,7 @@ class APIBkashController extends Controller
                 'transactionStatus'=>$response['transactionStatus'],
                 'trxID'=>$response['trxID'],
             ];
+            dd($json);
             $url = $this->schoolHelper->getEmsUrl().'/api/bkash/transaction/update/';
              $client = new Client();
             $bkashTransactionUpdate = json_decode($client->request('POST', $url,['json' => $json])->getBody()->getContents());
