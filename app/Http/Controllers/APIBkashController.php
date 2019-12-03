@@ -135,7 +135,7 @@ class APIBkashController extends Controller
             if (isset($response['errorCode'])) {
                 return ['status' => 'failed', 'bkash' => $response];
             } else {
-                dd($response);
+                // dd($response);
             $json = [
                 'id'=>$request->id,
                 'transactionStatus'=>$response['transactionStatus'],
