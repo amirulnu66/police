@@ -51,7 +51,8 @@
 <script src="{{ URL::to('js/bKash-checkout-sandbox.js') }}"></script>
 <script>
     $(document).ready(function () {
-    var paymentRequest = { amount:$studentProfile->amount , intent: 'sale'};
+      var amount="{{ $studentProfile->amount }}";
+    var paymentRequest = { amount:amount , intent: 'sale'};
     var id = "{{ $studentProfile->invoice_id }}";
     var paymentID = null;
     var bKashCheckoutUrl = 'https://plhsd.edu.bd/bKash/';
