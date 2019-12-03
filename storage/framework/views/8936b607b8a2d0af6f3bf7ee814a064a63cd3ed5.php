@@ -485,7 +485,7 @@
                     // checking
                     if(campus_id && institute_id){
                         $.ajax({
-                            url: "<?php echo e(URL::to('get-academic-level-list')); ?>",
+                            url: "/get-academic-level-list",
                             type: 'GET',
                             cache: false,
                             data: {
@@ -546,7 +546,7 @@
                     // checking
                     if(campus_id && institute_id){
                         $.ajax({
-                            url: "<?php echo e(URL::to('get-academic-batch-list')); ?>",
+                            url: "/get-academic-batch-list",
                             type: 'GET',
                             cache: false,
                             data: {
