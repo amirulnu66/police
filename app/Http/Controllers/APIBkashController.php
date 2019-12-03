@@ -24,7 +24,7 @@ class APIBkashController extends Controller
 
     public function createCheckOut(Request $request)
     {
-         $token = $this->genToken();
+      $token = $this->genToken();
         $curl = curl_init();
         $json = ['invoice_id'=>$request->id];
         $url = $this->schoolHelper->getEmsUrl().'/api/applicant/profile/';
@@ -134,7 +134,7 @@ class APIBkashController extends Controller
         if (intval($info['http_code']) === 200) {
             if (isset($response['errorCode'])) {
                 return ['status' => 'failed', 'bkash' => $response];
-            }
+            } else {
             $json = [
                 'id'=>$request->id,
                 'transactionStatus'=>$response['transactionStatus'],
@@ -148,6 +148,7 @@ class APIBkashController extends Controller
           }else {
             return ['status' => 'failed', 'bkash' => $bkashTransactionUpdate->msg];
           }
+         }
            
         } else return ['status' => 'failed', 'bkash' => $response];
      } else {
@@ -225,7 +226,7 @@ class APIBkashController extends Controller
         $url = $this->schoolHelper->getEmsUrl().'/api/applicant/profile/';
         $client = new Client();
         $response = json_decode($client->request('GET', $url,['json' => $json])->getBody()->getContents());
-         if($response->status=='success'){
+        if($response->status=='success'){
              $studentProfile = $response->data;
          }else{
              $requestData = null;

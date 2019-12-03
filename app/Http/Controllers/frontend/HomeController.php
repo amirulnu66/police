@@ -294,7 +294,7 @@ class HomeController extends Controller
  	//store student admission data
     public function admissionDataStore(Request $request) {
         // save/store online student information
-        $stdStored = $this->schoolHelper->storeOnlineStudent($request->all());
+		$stdStored = $this->schoolHelper->storeOnlineStudent($request->all());
         // checking
         if($stdStored){
 			 Session::flash('success','Student information submitted !!!');

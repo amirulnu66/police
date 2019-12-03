@@ -1,6 +1,11 @@
 <?php $__env->startSection('title'); ?>
 
 <?php $__env->startSection('contant'); ?>
+<style>
+  .displayHide{
+    display: none;
+  }
+</style>
  <header class="page-heading clearfix">
      <h1 class="heading-title pull-left">
     <span id="MainContent_lbletitle"> ফিস ও পেমেন্টস </span>
@@ -23,6 +28,7 @@
                 <?php if(Session::has('message')): ?>
                                    <p class="alert <?php echo e(Session::get('alert-class', 'alert-info')); ?>"><?php echo e(Session::get('message')); ?></p>
                                    <?php endif; ?>
+                 <div id="bkashalert" class="alert alert-danger displayHide"> </div>
               
                  <hr>
                 
@@ -43,9 +49,10 @@
 <script src="<?php echo e(URL::to('js/bKash-checkout-sandbox.js')); ?>"></script>
 <script>
     $(document).ready(function () {
-    var paymentRequest = { amount:50, intent: 'sale'};
+    var paymentRequest = { amount:30, intent: 'sale'};
     var id = "<?php echo e($studentProfile->invoice_id); ?>";
     var paymentID = null;
+    // var bKashCheckoutUrl = 'https://plhsd.edu.bd/bKash/';
     var bKashCheckoutUrl = 'http://localhost:8000/bKash/';
     bKash.init({
       paymentMode: 'checkout',
@@ -64,7 +71,9 @@
               id=obj.uuid;
               bKash.create().onSuccess(obj.bkash);
             } else{
-              $("#bkash-alert").html(obj.bkash.message);
+              // alert(obj.bkash.message);
+              $("#bkashalert").removeClass('displayHide').html(obj.bkash.message);
+              // $("#bkashalert").html(obj.bkash.message);
               bKash.create().onError();
             }
           },
@@ -89,10 +98,12 @@
               // alert('success') // redeict paymetn success page 
 
             }else if(obj.bkash.errorCode != undefined){
-              $("#bkash-alert").html(obj.bkash.errorMessage);
+              // $("#bkashalert").html(obj.bkash.errorMessage);
+              $("#bkashalert").removeClass('displayHide').html(obj.bkash.errorMessage);
               bKash.execute().onError();
             } else { 
-              $("#bkash-alert").html(obj.bkash.message);
+              // $("#bkashalert").html(obj.bkash.message);
+              $("#bkashalert").removeClass('displayHide').html(obj.bkash.message);
               bKash.execute().onError();
             }
           },
