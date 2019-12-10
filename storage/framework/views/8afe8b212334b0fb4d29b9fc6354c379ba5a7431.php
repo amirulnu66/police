@@ -1,4 +1,4 @@
- <header class="header">
+<header class="header">
     <div class="header-top primary-bg">
         <div class="container">
             <div class="row">
@@ -40,32 +40,29 @@
                 </a>
                 <?php endif; ?>
             </div>
-            <h1 class="logo col-md-8 col-sm-9">
+            <h1 class="logo col-md-7 col-sm-8">
                 <span class="col-md-12 col-sm-12 col-xs-9 title-bng">
                     <a href="/">
                         <span id="lblbSchoolName" style=" font-weight: bold; font-family: SolaimanLipi,Arial,sans-serif;
-                        color: #ff3d00d4;">পুলিশ লাইন হাই স্কুল এন্ড  কলেজ, দিনাজপুর </span></a>
+                        color: #ff3d00d4;"><?php echo e(settingsInfo()?settingsInfo()->institute_name : ''); ?></span></a>
                     </span>
                     <span class="col-md-12 col-sm-12 col-xs-9">
                         <a href="/">
                             <span id="lblbSchoolNameEng" style=" font-weight: bold; font-family: SolaimanLipi,Arial,sans-serif;
-                            color: #04727b;">Police Line High School & College, Dinajpur</span></a>
+                            color: #04727b;"><?php echo e(settingsInfo()?settingsInfo()->english_name : ''); ?></span></a>
                         </span>
                     <div class="clearfix"></div>    
                     </h1>
                     <!--//logo-->
-                    <div class="info col-md-2 col-sm-1 col-xs-12 ems-login-inner " style="float: right; padding-right: 0">
+                    <div class="info col-md-3 col-sm-2 col-xs-12 ems-login-inner " style="float: right; padding-right: 0">
                         <!--//menu-top-->
                         <br />
-
+                        <div class="admission-open">
+                            <a href="<?php echo e(URL::to('/admission/online/apply')); ?>" target="_blank">Admission Open</a>
+                        </div>    
                         <div class="contact pull-right ems-login-btn">
                             <p class="parent">
-                                <a href="http://ems.plhsd.edu.bd/" target="_blank" class="btn btn-success home-login" style="font-family:SolaimanLipi; letter-spacing: 1px;">Login </a>
-
-                            </p>
-                        </div>
-                        <div class="contact pull-right" style="margin-right: 20px">
-                            <p>
+                                <a href="<?php echo e(URL::to('http://ems.alokitosoftware.com/')); ?>" target="_blank" class="btn btn-success home-login" style="font-family:SolaimanLipi; letter-spacing: 1px;">Login </a>
 
                             </p>
                         </div>
@@ -178,7 +175,7 @@
                                     <li>
                                         <a href="#"> ভর্তি কার্যক্রম <i class="fa fa-caret-down"></i></a>
                                         <ul class="submenu">
-                                            <li><a href="<?php echo e(URL::to('/admission/online/apply')); ?>">অনলাইন অ্যাডমিশন  </a></li>
+                                            <!-- <li><a href="<?php echo e(URL::to('/admission/online/apply')); ?>">অনলাইন অ্যাডমিশন  </a></li> -->
 
                                             <li><a href="<?php echo e(url('/academic/admission-result')); ?>">ভর্তির ফলাফল</a></li>
                                             <li><a href="<?php echo e(url('/pages/short-information')); ?>">সংক্ষিপ্ত তথ্যাবলী</a></li>
