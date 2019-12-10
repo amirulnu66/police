@@ -220,7 +220,7 @@
 
 /* Tablet desktop :768px. */
 @media (min-width: 992px) and (max-width: 1199px){
-#lblbSchoolName {font-size: 32px;}
+    #lblbSchoolName {font-size: 32px;}
 
 }
 
@@ -806,10 +806,10 @@
         font-size: 20px;
     }
     .adivisor-text-title-2 h4 {
-    font-size: 30px;
-    padding-top: 15px;
-    padding-bottom: 15px;
-}
+        font-size: 30px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
 
 }
 
@@ -1221,14 +1221,14 @@
     .header-bottom-area.header-sticky.sticky .header-bottom-icon {
         margin-top: 25px;
     }
-    
+
 
 
 
 }
 
 @media (max-width: 360px) {
-.header-contact-phone{margin: 0; padding: 0;}
-.main-logo-inner img{width: 55px; height: 55px;}
+    .header-contact-phone{margin: 0; padding: 0;}
+    .main-logo-inner img{width: 55px; height: 55px;}
 
 }
