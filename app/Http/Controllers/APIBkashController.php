@@ -33,7 +33,7 @@ class APIBkashController extends Controller
          if($studentProfile->status=='success'){
 
         $payload = [
-            'amount' => $studentProfile->data->amount,
+            'amount' => 15,
             'currency' => 'BDT',
             'intent' => 'sale',
             'merchantInvoiceNumber' => $request->id
@@ -56,6 +56,7 @@ class APIBkashController extends Controller
         $response = curl_exec($curl);
         $err = curl_error($curl);
         $info = curl_getinfo($curl);
+        Log::info('Create CheckOut'.$response);
 
         curl_close($curl);
 
@@ -123,6 +124,7 @@ class APIBkashController extends Controller
         $info = curl_getinfo($curl);
 
         curl_close($curl);
+        Log::info('Payemnt Execute'.$response);
 
         if ($err) {
             echo "cURL Error #:" . $err;
@@ -132,10 +134,12 @@ class APIBkashController extends Controller
         }
 
         if (intval($info['http_code']) === 200) {
+            
             if (isset($response['errorCode'])) {
                 return ['status' => 'failed', 'bkash' => $response];
             } else {
                 // dd($response);
+               
             $json = [
                 'id'=>$request->id,
                 'transactionStatus'=>$response['transactionStatus'],
@@ -145,6 +149,7 @@ class APIBkashController extends Controller
              $client = new Client();
             $bkashTransactionUpdate = json_decode($client->request('POST', $url,['json' => $json])->getBody()->getContents());
             if($bkashTransactionUpdate->status=='success'){
+                dd($response);
                 return ['status' => 'success', 'bkash' => $response];
           }else {
             return ['status' => 'failed', 'bkash' => $bkashTransactionUpdate->msg];
@@ -187,6 +192,7 @@ class APIBkashController extends Controller
 
             $response = curl_exec($curl);
             $err = curl_error($curl);
+            Log::info('Gen Token'.$response);
 
             curl_close($curl);
 
@@ -194,6 +200,7 @@ class APIBkashController extends Controller
                 echo "cURL Error #:" . $err;
             } else {
                 $response = json_decode($response);
+               
                 $json = [
                     'id_token'=>$response->id_token,
                     'expires_in'=>$response->expires_in,
@@ -202,7 +209,7 @@ class APIBkashController extends Controller
                 $client = new Client();
                 $tokenStore= json_decode($client->request('POST', $url, ['json' => $json])->getBody()->getContents());
                  if($tokenStore->status=='success'){
-                    return $tokenProfile->token;
+                    return $tokenStore->token;
                  }
             }
         }

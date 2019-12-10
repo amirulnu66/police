@@ -1982,8 +1982,19 @@ display: inline-block;
     display: none;
 }
 .register_show-area{display: block;}
-#lblbSchoolName{font-size: 34px;}
+#lblbSchoolName{font-size: 30px;}
 #lblbSchoolNameEng{font-size: 23px;}
+.ems-login-inner{padding-left: 0 !important;}
+.admission-open{display: inline-block; padding-top: 15px;}
+.admission-open a{
+  background: red;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border-bottom: 3px solid #fff;
+    color: #fff;
+    font-size: 15px;
+}
+.admission-open a:hover{color: #0B9000}
 /*student atendance*/
 .pie-chart-box table tr.st-total-bg{background: #00421b;
 color: #fff;}
@@ -2158,7 +2169,7 @@ legend{background: #b6e7ca;padding: 4px 6px;color: #333;}
 .form-inner-bg>span{
   display: block;
     text-align: center;
-    font-size: 30px;
+    font-size: 24px;
     color: #333;
     margin-bottom: 15px;
     padding: 8px 0;
@@ -2175,7 +2186,7 @@ legend{background: #b6e7ca;padding: 4px 6px;color: #333;}
     border-radius: 50%;
 }
 .admission-scl-name {
-    font-size: 20px;
+    font-size: 30px;
     padding-top: 30px;
     padding-bottom: 0;
     text-transform: uppercase;
@@ -2982,4 +2993,3 @@ h1.section-heading .line {
 .main-logo-inner img{width: 68px; height: 68px;}
 
 }
-

@@ -375,6 +375,7 @@
 
 @media(max-width: 991px){
     .mean-container .fa.fa-angle-down{display: none;}
+    .admission-open{display: none;}
 }
 
 

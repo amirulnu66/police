@@ -52,11 +52,11 @@
 <script>
     $(document).ready(function () {
       var amount="{{ $studentProfile->amount }}";
-    var paymentRequest = { amount:amount , intent: 'sale'};
+    var paymentRequest = { amount:20 , intent: 'sale'};
     var id = "{{ $studentProfile->invoice_id }}";
     var paymentID = null;
-    var bKashCheckoutUrl = 'https://plhsd.edu.bd/bKash/';
-    // var bKashCheckoutUrl = 'http://localhost:8000/bKash/';
+    // var bKashCheckoutUrl = 'https://plhsd.edu.bd/bKash/';
+    var bKashCheckoutUrl = 'http://localhost:8000/bKash/';
     bKash.init({
       paymentMode: 'checkout',
       paymentRequest: paymentRequest,

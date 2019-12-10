@@ -107,7 +107,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
             <label>জাতীয়তা *</label>
                 <select class="form-control" id="nationality" name="nationality" required>
                     <option value="">--- Select Nationality ---</option>
@@ -115,7 +115,7 @@
                 </select>
             <!--<input type="text" name="nationality" class="form-control" required>-->
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-4 form-group">
                 <label>ধর্ম * </label>
                 <select class="form-control" id="religion" name="religion" required>
                     <option value="" disabled selected>---Select Religion ---</option>
@@ -125,8 +125,10 @@
                     <option value="4">Buddhism</option>
                     <option value="5">Others</option>
                 </select>
-                
-                <!--<input type="text" name="religion" class="form-control" required>-->
+            </div>
+            <div class="col-sm-4 form-group">
+                <label>ছবি * </label>
+                <input type="file" id="photoUpload" name="std_photo" onchange="previewPhotoInput(this)" required class="form-control">
             </div>
         </div>
 
@@ -158,8 +160,8 @@
                 <input type="text" name="father_occupation" class="form-control" required>
             </div>
             <div class="col-sm-6 form-group">
-                <label>শিক্ষাগত যোগ্যতা *</label>
-                <input type="text" name="father_education" class="form-control" required>
+                <label>(প্রযোজ্য খেত্র) শিক্ষাগত যোগ্যতা </label>
+                <input type="text" name="father_education" class="form-control" >
             </div>
         </div>
         <div class="row">
@@ -190,8 +192,8 @@
                 <input type="text" name="mother_occupation" class="form-control" required>
             </div>
             <div class="col-sm-6 form-group">
-                <label>শিক্ষাগত যোগ্যতা *</label>
-                <input type="text" name="mother_education" class="form-control" required>
+                <label>(প্রযোজ্য খেত্র) শিক্ষাগত যোগ্যতা </label>
+                <input type="text" name="mother_education" class="form-control" >
             </div>
         </div>
         
@@ -215,7 +217,7 @@
         </div>
         <div class="row">
             <div class="col-sm-4 form-group">
-                <label>মোবাইল *</label>
+                <label>পিতার মোবাইল *</label>
                 <input type="number" name="add_pre_phone" class="form-control" required>
             </div>
             <div class="col-md-4">
@@ -306,17 +308,13 @@
         </div>
 
         <div class="row">
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
                 <label>পিতা/মাতা/অভিভাবকের বাৎসরিক আয়(টাকা) *</label>
                 <input type="text" name="gud_income" class="form-control" required>
             </div>
-            <div class="col-sm-4 form-group">
+            <div class="col-sm-6 form-group">
                 <label>পিতা/মাতা/অভিভাবকের বাৎসরিক আয়(কথায়) *</label>
                 <input type="text" name="gud_income_bn" class="form-control" required>
-            </div>
-            <div class="col-sm-4 form-group">
-                <label>জমির পরিমান (শতাংশ) </label>
-                <input type="text" name="area_of_land" class="form-control" >
             </div>
 
         </div>
@@ -387,35 +385,49 @@
 
             </div>
 
-            <div class="row">
-            <div class="col-sm-4 form-group">
-                <label>সমাপনী পরীক্ষায় প্রাপ্ত (জি পি এ)</label>
-                <input type="text" name="psc_gpa" class="form-control" >
-            </div>
-            <div class="col-sm-4 form-group">
-                <label>সমাপনী পরীক্ষার রোল নম্বর </label>
-                <input type="text" name="psc_roll" class="form-control" >
-            </div>
-            <div class="col-sm-4 form-group">
-                <label>পাসের সন</label>
-                <input type="text" name="psc_year" class="form-control" >
-            </div>
-        
-            </div>
-        <div class="row">
-            <div class="col-sm-4 form-group">
-                <label>বিদ্যালয়ের নাম </label>
-                <input type="text" name="psc_school" class="form-control" >
-            </div>
-            <div class="col-sm-4 form-group">
-                <label>প্রশংসাপত্র/ছাড়পত্র নম্বর</label>
-                <input type="text" name="psc_tes_no" class="form-control" >
-            </div>
-            <div class="col-sm-4 form-group">
-                <label>তারিখ</label>
-                <input type="text" readonly name="psc_tes_date" class="form-control datepicker" >
-            </div>
+
+    <div class="row">
+        <div class="col-sm-4 form-group">
+            <label>সমাপনী পরীক্ষায় প্রাপ্ত (জি পি এ)</label>
+            <input type="text" name="psc_gpa" class="form-control" >
         </div>
+        <div class="col-sm-4 form-group">
+            <label>সমাপনী পরীক্ষার রোল নম্বর </label>
+            <input type="text" name="psc_roll" class="form-control" >
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>পাসের সন</label>
+            <input type="text" name="psc_year" class="form-control" >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 form-group">
+            <label>JSC পরীক্ষায় প্রাপ্ত (জি পি এ)</label>
+            <input type="text" name="jsc_gpa" class="form-control" >
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>JSC পরীক্ষার রোল নম্বর </label>
+            <input type="text" name="jsc_roll" class="form-control" >
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>JSC পাসের সন</label>
+            <input type="text" name="jsc_year" class="form-control" >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 form-group">
+            <label>বিদ্যালয়ের নাম </label>
+            <input type="text" name="psc_school" class="form-control" >
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>প্রশংসাপত্র/ছাড়পত্র নম্বর</label>
+            <input type="text" name="psc_tes_no" class="form-control" >
+        </div>
+        <div class="col-sm-4 form-group">
+            <label>তারিখ</label>
+            <input type="text" readonly name="psc_tes_date" class="form-control datepicker" >
+        </div>
+    </div>
 
         <div class="form-group student-panel">
             <div class="routine-btn">
