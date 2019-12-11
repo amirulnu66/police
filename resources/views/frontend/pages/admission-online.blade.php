@@ -429,6 +429,15 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-sm-12 form-group">
+            <label>I agree </label>
+            <input type="checkbox" name="agree" required class="form-control" >
+            <p>আমি এই মর্মে অঙ্গিকার করিতেছি যে, উপরোক্ত তথ্য সমূহ সত্য আরো প্রতিজ্ঞা করতেছি যে, এই প্রতিষ্ঠানের যাবতীয় নিয়ম কানুন অবগত হয়ে ভর্তির জন্য আবেদন করিতেছি।   </p>
+        </div>
+       
+    </div>
+
         <div class="form-group student-panel">
             <div class="routine-btn">
                 <button type="submit" class="p-color-bg themehover">Submit</button>

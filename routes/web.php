@@ -305,6 +305,16 @@ Route::get('/api/get-academic-batch-list/{levelId}', 'SchoolHelperController@get
 Route::get('/api/get-academic-section-list/{sectionId}', 'SchoolHelperController@getAcademicSectionList');
 
 
+// student login route
+Route::get('/applicant-login', 'frontend\HomeController@loginStudentView');
+Route::post('/applicant-login', 'frontend\HomeController@ckeckStudentLogin');
+//applicant loguot
+Route::get('/applicant-logout', 'frontend\HomeController@applicantLogout');
+
+// applicant data update view route
+Route::get('/applicant/admission/update-view','frontend\HomeController@ApplicantDataUpdateView');
+
+
 
 
 // bkash payment all route 

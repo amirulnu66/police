@@ -48,7 +48,7 @@ class APIBkashController extends Controller
             CURLOPT_POSTFIELDS => \json_encode($payload),
             CURLOPT_HTTPHEADER => array(
                 "Authorization: Bearer " . $token,
-                "X-APP-Key: 5nej5keguopj928ekcj3dne8p",
+                "X-APP-Key: 7egkmcat7qdintpoak3m791mq9",
                 "Content-Type: application/json",
             ),
         ));
@@ -114,7 +114,7 @@ class APIBkashController extends Controller
             // CURLOPT_POSTFIELDS => \json_encode($payload),
             CURLOPT_HTTPHEADER => array(
                 "Authorization:" . $token,
-                "X-APP-Key:5nej5keguopj928ekcj3dne8p",
+                "X-APP-Key:7egkmcat7qdintpoak3m791mq9",
                 "Content-Type: application/json",
             ),
         ));
@@ -182,11 +182,11 @@ class APIBkashController extends Controller
                 CURLOPT_TIMEOUT => 30,
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_POSTFIELDS => "{\n      \"app_key\":\"5nej5keguopj928ekcj3dne8p\",\n      \"app_secret\":\"1honf6u1c56mqcivtc9ffl960slp4v2756jle5925nbooa46ch62\"\n  }",
+                CURLOPT_POSTFIELDS => "{\n      \"app_key\":\"7egkmcat7qdintpoak3m791mq9\",\n      \"app_secret\":\"n7ptd7emd0d3jukhfjb38vp5cqbtb7ilsv14os5q6isvsgm8igk\"\n  }",
                 CURLOPT_HTTPHEADER => array(
                     "Content-Type: application/json",
-                    "password: test%#de23@msdao",
-                    "username: testdemo"
+                    "password: p@9OL8icE3rM1",
+                    "username: POLICELINEDINAJPUR"
                 ),
             ));
 
@@ -200,6 +200,7 @@ class APIBkashController extends Controller
                 echo "cURL Error #:" . $err;
             } else {
                 $response = json_decode($response);
+                dd($response);
                
                 $json = [
                     'id_token'=>$response->id_token,

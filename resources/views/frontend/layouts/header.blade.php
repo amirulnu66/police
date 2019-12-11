@@ -54,11 +54,14 @@
                     <div class="clearfix"></div>    
                     </h1>
                     <!--//logo-->
-                    <div class="info col-md-3 col-sm-2 col-xs-12 ems-login-inner " style="float: right; padding-right: 0">
+                    <div class="info col-md-4 col-sm-2 col-xs-12 ems-login-inner " style="float: right; padding-right: 0">
                         <!--//menu-top-->
                         <br />
                         <div class="admission-open">
                             <a href="{{URL::to('/admission/online/apply')}}" target="_blank">Admission Open</a>
+                        </div>    
+                        <div class="admission-open">
+                            <a href="{{URL::to('/applicant-login')}}" target="_blank">Applicant's Login</a>
                         </div>    
                         <div class="contact pull-right ems-login-btn">
                             <p class="parent">

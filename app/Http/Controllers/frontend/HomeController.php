@@ -434,4 +434,59 @@ class HomeController extends Controller
 	}
 
 
+	// applicant login and regesation 
+
+	  //applicant login view page method
+	  public function loginStudentView(){
+        return view('frontend.pages.login-student');
+
+    }
+
+ 	//applicant login submit method
+ 	public function ckeckStudentLogin(Request $request){
+        // json body information
+        $json = [
+            'institute'=>$this->schoolHelper->getInstituteId(),
+            'campus'=>$this->schoolHelper->getCampusId(),
+            'username'=>$request->input('username'),
+            'password'=>$request->input('password'),            
+            'return_type'=>'json',
+        ];
+        // return academic level list
+         $applicantProfile = $this->schoolHelper->getApplicantData($json); 
+         // checking
+         if($applicantProfile->status){
+
+            session(['applicant' => $applicantProfile->data]);
+            return redirect('/applicant/admission/update-view');
+         }else{
+            Session::flash('feiled', 'The login is invalid.');
+            return redirect()->back();
+         }    
+
+ 	}
+
+    //applicant logout method
+    public function applicantLogout(){
+        session()->forget('applicant');
+        //return redirect login page
+        return redirect('applicant-login');
+	}
+	
+	   //aplicante admission update view
+	   public function ApplicantDataUpdateView() {
+        // find state list
+        $stateList = $this->schoolHelper->getStateList();
+        // academic year list
+        $academicYearList = $this->schoolHelper->getAcademicYearList();
+        // academic level list
+        $academicLevelList = $this->schoolHelper->getAcademicLevelList();
+        //applicant Profile list
+         $applicantProfile = session()->get('applicant', []);
+        // return view with variables
+        return view('frontend.pages.update-applicant-info',compact('stateList','academicYearList', 'academicLevelList','applicantProfile'));
+    }
+
+
+
 }

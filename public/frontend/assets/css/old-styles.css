@@ -2994,3 +2994,57 @@ h1.section-heading .line {
 
 }
 /*old */
+
+/* LOgin Innter Seciton  */
+
+.student-login .login-btn{
+  padding: 10px 0;
+    background: #0b9000;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    width: 100%;
+    text-align: center;
+    border-radius: 4px;
+}
+.login-inner-section{padding: 30px 0;}
+.login-title >p{
+      text-align: center;
+    font-size: 20px;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+.login-inner-section .login-input{
+   background: #f7f7f7 none repeat scroll 0 0;
+  border: 1px solid #d4d4d4;
+  border-radius: 4px;
+  font-size: 14px;
+  height: 50px;
+  line-height: 50px;
+}
+.admission-pdf-btn{ font-size: 16px;padding: 11px 25px 6px 25px;background: #b6e7ca;border-radius: 4px;color:#002147;font-weight: 700;}
+.admission-pdf-btn:hover{ color: #fff;background-color: #449d44;border-color: #398439;}
+.applicant-logout{padding: 12px 8px; border-radius: 4px;background: #b6e7ca; padding:11px 8px; }
+.fileUpload #logo-id {
+    position: absolute;
+     top: 0; 
+     right: 0; 
+     margin: 0; 
+     padding: 0; 
+     font-size: 33px; 
+     cursor: pointer; 
+     opacity: 0; 
+    filter: alpha(opacity=0);
+}
+.fileUpload{margin-top: 15px; margin-bottom: 15px; padding: 14px 8px;}
+.table-font-size tbody >tr> td{font-size: 20px;}
+
+p.online-botton a {
+  color: #db4437;
+  font-size: 15px;
+  transition: 0.6s;
+}
+
+.admision-button p.online-botton.applicant-login{display: block; text-align: center;}
+.admision-button p.online-botton.applicant-login a{font-size: 18px;}
+
